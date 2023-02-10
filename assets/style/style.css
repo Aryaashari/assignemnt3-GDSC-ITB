@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #434242;
+}
+
+.button {
+    background-color: #22A39F;
+    padding: 8px 45px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    border: 3px solid transparent;
+    transition: all .3s;
+}
+
+.button:hover {
+    background-color: transparent;
+    border: 3px solid #22A39F;
+    color: #22A39F;
+} 
+
+.navbar {
+    padding: 20px;
+    background-color: #222222;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar > .nav-title {
+    font-size: 26px;
+    margin: auto;
+    justify-items: end;
+    font-family: 'Poppins', sans-serif;
+    color: #F7F7F7;
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header .section-line {
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 5px;
+    margin: 0px 20px;
+    border-radius: 5px;
+}
+
+.section-header .section-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #F7F7F7;
+}
+
+
+main {
+    margin-top: 50px;
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    width: 20%;
+    height: auto;
+    background-color: #F3EFE0;
+    border-radius: 10px;
+    /* border: 4px solid #F7F7F7; */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card .card-thumb {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.card .card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #222222;
+}
+
+.card .card-subtitle {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.card-footer .card-footer-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222222;
+}
+
+
+.back-button {
+    position: absolute;
+    left: 10;
+}
+
+.back-button > img {
+    width: 25px;
+}
+
+
+
+
+.food {
+    margin-bottom: 80px;
+}
+
+
+
+footer {
+    background-color: #222222;
+    padding: 25px;
+    left: 0;
+    bottom: 0;
+    /* position: absolute; */
+    /* width: auto; */
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #F7F7F7;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+
+/* X-Small devices */
+@media (max-width: 575.98px) {
+
+    .button {
+        padding: 5px 40px;
+        font-size: 14px;
+    }
+
+
+    .row {
+        justify-content: center;
+    }
+    .card {
+        width: 65%;
+    }
+
+    .card .card-title {
+        font-size: 18px;
+    }
+
+    .card .card-subtitle {
+        font-size: 12px;
+    }
+
+    .card-footer .card-footer-text {
+        font-size: 16px;
+    }
+
+}
+
+
+
+/* Samll devices */
+@media (min-width: 575.99px) and (max-width: 767.98px) { 
+    .button {
+        padding: 8px 25px;
+    }
+
+
+    .card {
+        width: 35%;
+    }
+
+    .card .card-thumb {
+        height: 185px;
+    }
+
+    .card-footer .card-footer-text {
+        font-size: 18px;
+    }
+
+}
+
+
+
+/* Meidum devices */
+@media (min-width: 767.99px) and (max-width: 991.98px) {
+
+    .card {
+        width: 35%;
+    }
+
+}

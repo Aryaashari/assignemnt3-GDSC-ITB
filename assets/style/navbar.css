@@ -1,0 +1,11 @@
+#navbar {
+    padding: 20px;
+    background-color: #434242;
+}
+
+#navbar > .nav-title {
+    font-size: 26px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #F3EFE0;
+}
