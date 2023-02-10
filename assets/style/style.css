@@ -110,12 +110,16 @@ main {
     margin-top: 20px;
 }
 
-.card-footer .card-footer-text {
+/* .card-footer .card-footer-text {
     font-size: 20px;
     font-weight: 600;
     color: #222222;
-}
+} */
 
+.card-footer .button {
+    width: 100%;
+    text-align: center;
+}
 
 .back-button {
     position: absolute;
@@ -127,12 +131,21 @@ main {
 }
 
 
-
-
 .food {
     margin-bottom: 80px;
 }
 
+
+#loader {
+    margin: auto;
+    display: none;
+    width: 100px;
+}
+
+#loadMoreBtn {
+    margin: auto;
+    display: none;
+}
 
 
 footer {

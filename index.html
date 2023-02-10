@@ -36,50 +36,21 @@
 
         <!-- Start Food Area -->
         <div class="food">
+
             <div class="section-header">
                 <div class="section-line"></div>
                 <div class="section-title">Foods</div>
                 <div class="section-line"></div>
             </div>
-
+            
             <div class="row">
-                <div class="card">
-                    <img src="assets/img/makanan1.jpg" alt="nasi-goreng" class="card-thumb">
-                    <h3 class="card-title">Nasi Goreng</h3>
-                    <p class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi commodi quo et quam minima reprehenderit officia quaerat alias! Saepe!</p>
-                    <div class="card-footer">
-                        <div class="card-footer-text">IDR 30.000</div>
-                        <a href="pages/foods/food1.html" class="button">Detail</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="assets/img/makanan2.jpg" alt="nasi-goreng" class="card-thumb">
-                    <h3 class="card-title">Sate</h3>
-                    <p class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi commodi quo et quam minima reprehenderit officia quaerat alias! Saepe!</p>
-                    <div class="card-footer">
-                        <div class="card-footer-text">IDR 25.000</div>
-                        <a href="pages/foods/food2.html" class="button">Detail</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="assets/img/makanan3.jpeg" alt="nasi-goreng" class="card-thumb">
-                    <h3 class="card-title">Nasi Kuning</h3>
-                    <p class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi commodi quo et quam minima reprehenderit officia quaerat alias! Saepe!</p>
-                    <div class="card-footer">
-                        <div class="card-footer-text">IDR 20.000</div>
-                        <a href="pages/foods/food3.html" class="button">Detail</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="assets/img/makanan4.jpg" alt="nasi-goreng" class="card-thumb">
-                    <h3 class="card-title">Seblak</h3>
-                    <p class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi commodi quo et quam minima reprehenderit officia quaerat alias! Saepe!</p>
-                    <div class="card-footer">
-                        <div class="card-footer-text">IDR 20.000</div>
-                        <a href="pages/foods/food4.html" class="button">Detail</a>
-                    </div>
-                </div>
             </div>
+
+            <!-- Loader -->
+            <img id="loader" src="assets/img/loader.gif" alt="loader">
+            <!-- EndLoader -->
+
+            <button onclick="loadMeals()" id="loadMoreBtn" class="button">Load More</button>
         </div>
         <!-- End Food Area -->
 
@@ -142,5 +113,41 @@
         <p>Copyright 2023 Arya Ashari</p>
     </footer>
     <!-- End Footer Area -->
+
+
+    <script src="assets/js/getData.js"></script>
+    <script>
+        const containerFood = document.querySelector(".food .row");
+        const loader = document.getElementById("loader");
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+
+        function loadMeals() {
+            const meals = getMeals(8).then((response) => displayMeals(response));
+            loader.style.display = 'block';
+            loadMoreBtn.style.display = 'none';
+        }
+
+        function displayMeals(response) {
+            loader.style.display = 'none';
+            for (let i=0; i < response.length; i++) {
+                containerFood.innerHTML +=
+                    `
+                        <div class="card">
+                            <img src=${response[i].strMealThumb} alt="nasi-goreng" class="card-thumb">
+                            <h3 class="card-title">${response[i].strMeal.length > 12 ? response[i].strMeal.slice(0,12).trim()+'...' : response[i].strMeal}</h3>
+                            <p class="card-subtitle">${response[i].strInstructions.slice(0,150) + '...'}</p>
+                            <div class="card-footer">
+                                <a href="pages/foods/food1.html" class="button">Detail</a>
+                            </div>
+                        </div>
+                    `
+            }
+
+            loadMoreBtn.style.display = 'block';
+        }
+
+        loadMeals();
+    </script>
 </body>
 </html>
