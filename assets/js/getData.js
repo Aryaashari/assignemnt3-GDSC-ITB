@@ -30,7 +30,6 @@ async function getMeals(N, url) {
     try {
         for (let i=0; i<N; i++) {
             const meal = await getMeal(url);
-            console.log(meal);
             if (!meals.includes(meal.idMeal)) {
                 meals.push(meal);
             } else {
