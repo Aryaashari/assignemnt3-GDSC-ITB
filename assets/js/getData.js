@@ -1,8 +1,8 @@
-const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+// const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
 
 
- function callApi() {
+ function callApi(url) {
     const request = new Request(url, {
         headers: {
             'Accept': 'application/json'
@@ -14,9 +14,9 @@ const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
     return response.then((res) => res.json());
 }
 
-async function getMeal() { 
+async function getMeal(url) { 
     try {
-        const meal = await callApi();
+        const meal = await callApi(url);
         return meal.meals[0];
     } catch(error) {
         throw error;
@@ -25,11 +25,12 @@ async function getMeal() {
 
 
 
-async function getMeals(N) {
+async function getMeals(N, url) {
     let meals = []
     try {
         for (let i=0; i<N; i++) {
-            const meal = await getMeal();
+            const meal = await getMeal(url);
+            console.log(meal);
             if (!meals.includes(meal.idMeal)) {
                 meals.push(meal);
             } else {

@@ -33,6 +33,12 @@
     <!-- Start Main Area -->
     <main>
 
+        <!-- Start Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchForm">
+            <button id="searchBtn">Search</button>
+        </div>
+        <!-- End Search Bar -->
 
         <!-- Start Food Area -->
         <div class="food">
@@ -72,10 +78,10 @@
         const loadMoreBtn = document.getElementById("loadMoreBtn");
 
 
-        function loadMeals() {
+        function loadMeals(url = "https://www.themealdb.com/api/json/v1/1/random.php") {
             loader.style.display = 'block';
             loadMoreBtn.style.display = 'none';
-            const meals = getMeals(8).then(
+            const meals = getMeals(8, url).then(
                                             (response) => displayMeals(response)
                                         ).catch(
                                             (error) => {
@@ -114,6 +120,23 @@
 
             window.location.href = 'pages/detail.html';
         }
+
+
+
+        // Handle Search
+        const searchForm = document.getElementById("searchForm");
+        const searchBtn = document.getElementById("searchBtn");
+
+        searchBtn.addEventListener("click", (_) => {
+            const keyword = searchForm.value.trim();
+
+            if (keyword == null || keyword == "") {
+                containerFood.innerHTML = "";
+                loadMeals();
+            } else {
+                // loadMeals("")
+            }
+        });
     </script>
 </body>
 </html>

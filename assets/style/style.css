@@ -75,6 +75,16 @@ main {
     width: 100%;
 }
 
+
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+
 .card {
     width: 20%;
     height: auto;
