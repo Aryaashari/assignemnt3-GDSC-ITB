@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasi Kuning</title>
+    <title></title>
 
     <link rel="stylesheet" href="../../assets/style/style.css">
     <link rel="stylesheet" href="../../assets/style/detail.css">
@@ -21,7 +21,7 @@
 
         <!-- Start Navbar Area -->
         <div class="navbar">
-            <a href="../../index.html" class="back-button">
+            <a href="../../index.html" onclick="handleBackButton()" class="back-button">
                 <img src="../../assets/img/back.png" alt="back-button">
             </a>
             <h2 class="nav-title">
@@ -51,16 +51,16 @@
             
             <div class="row">
                 <div class="detail-img">
-                    <img src="../../assets/img/makanan3.jpeg" alt="nasi-kuning">
+                    <img src="" alt="">
                 </div>
 
                 <div class="detail-right">
-                    <h3 class="detail-title">Nasi Kuning</h3>
-                    <p class="detail-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores ratione aut, officia harum voluptas porro quae dolores ipsum commodi quam nulla blanditiis temporibus esse doloremque quas excepturi placeat et voluptate. Voluptate odio rem magnam perferendis itaque repudiandae, aliquam aperiam delectus inventore totam error excepturi incidunt eum voluptatem nostrum suscipit amet cum ab soluta repellat quidem quam eligendi voluptas iste? Expedita.</p>
-                    <div class="detail-right-footer">
-                        <p>IDR 20.000</p>
+                    <h3 class="detail-title"></h3>
+                    <p class="detail-desc"></p>
+                    <!-- <div class="detail-right-footer">
+                        <p>IDR 30.000</p>
                         <a href="" class="button">Order</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -77,5 +77,31 @@
         <p>Copyright 2023 Arya Ashari</p>
     </footer>
     <!-- End Footer Area -->
+
+
+    <script>
+
+        const name = sessionStorage.getItem("name");
+        const instrcution = sessionStorage.getItem("instruction");
+        const thumb = sessionStorage.getItem("thumb");
+
+        document.title = name;
+        
+        imageThumb = document.querySelector(".detail-img img");
+        title = document.querySelector(".detail-title");
+        desc = document.querySelector(".detail-desc");
+
+        imageThumb.setAttribute("src", thumb);
+        imageThumb.setAttribute("alt", name);
+
+        title.innerText = name;
+        desc.innerText = instrcution;
+        
+        function handleBackButton() {
+            sessionStorage.clear();
+            window.location.href = "../index.html";
+        }
+
+    </script>
 </body>
 </html>
